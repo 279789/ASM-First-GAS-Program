@@ -76,10 +76,11 @@ The Kernel than takes care of the instructions that were written into the regist
 
 ## 3) Questions
 
-1. What does the `globl _start` directive do?
-2. Why do we use `rax` to specify the syscall?
-3. What would happen if you omit the `syscall` instruction?
-4. What is the difference between the `ld` and `as` steps?
+1. What does the `globl _start` directive do? .globl_start defines _start
+ as a global symbol. It#s needed for the linker, so that he knows where the function starts.
+2. Why do we use `rax` to specify the syscall? %rax is used for the Kernal functions, for example %60 is used to delete the last process, wich causes to kill the actual process.
+3. What would happen if you omit the `syscall` instruction? The core would dump again.
+4. What is the difference between the `ld` and `as` steps? The "as" Step does take the asambley code and put it to machine code, wich is stored in an .o data. The .o file is not executable. The linker stepp does link a few .o files to an executable programm.
 
 <details>
   <summary>Hint: syscall numbers</summary>
